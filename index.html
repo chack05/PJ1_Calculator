@@ -29,6 +29,7 @@
     <button class="btn btn-primary" onclick="calculate('-')">-</button>
     <button class="btn btn-primary" onclick="calculate('*')">*</button>
     <button class="btn btn-primary" onclick="calculate('/')">/</button>
+    <button class="btn btn-danger" onclick="clearFields()">Clear</button>
     <br><br>
     <input type="number" id="num1" class="form-control" placeholder="Số thứ nhất">
     <input type="number" id="num2" class="form-control" placeholder="Số thứ hai">
@@ -48,6 +49,10 @@
       switch (operator) {
         case '+':
           result = num1 + num2;
+          break;
+        case '-':
+          result = num1 - num2;
+          break;
         case '/':
           result = num2 !== 0 ? num1 / num2 : "Không thể chia cho 0!";
           break;
@@ -57,6 +62,12 @@
     }
 
     document.getElementById("result").value = result;
+  }
+
+  function clearFields() {
+    document.getElementById("num1").value = "";
+    document.getElementById("num2").value = "";
+    document.getElementById("result").value = "0";
   }
 </script>
 
