@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,62 +15,69 @@
       border: 1px solid #ccc;
       border-radius: 10px;
     }
-    input, button {
+
+    input,
+    button {
       margin: 5px;
     }
   </style>
 </head>
+
 <body>
 
-<div class="container">
-  <div class="calculator text-center">
-    <input type="text" id="result" class="form-control" placeholder="0" readonly>
-    <br>
-    <button class="btn btn-primary" onclick="calculate('+')">+</button>
-    <button class="btn btn-primary" onclick="calculate('-')">-</button>
-    <button class="btn btn-primary" onclick="calculate('*')">*</button>
-    <button class="btn btn-primary" onclick="calculate('/')">/</button>
-    <button class="btn btn-danger" onclick="clearFields()">Clear</button>
-    <br><br>
-    <input type="number" id="num1" class="form-control" placeholder="Số thứ nhất">
-    <input type="number" id="num2" class="form-control" placeholder="Số thứ hai">
+  <div class="container">
+    <div class="calculator text-center">
+      <input type="text" id="result" class="form-control" placeholder="0" readonly>
+      <br>
+      <button class="btn btn-primary" onclick="calculate('+')">+</button>
+      <button class="btn btn-primary" onclick="calculate('-')">-</button>
+      <button class="btn btn-primary" onclick="calculate('*')">*</button>
+      <button class="btn btn-primary" onclick="calculate('/')">/</button>
+      <button class="btn btn-danger" onclick="clearFields()">Clear</button>
+      <br><br>
+      <input type="number" id="num1" class="form-control" placeholder="Số thứ nhất">
+      <input type="number" id="num2" class="form-control" placeholder="Số thứ hai">
+    </div>
   </div>
-</div>
 
-<!-- JavaScript -->
-<script>
-  function calculate(operator) {
-    var num1 = parseFloat(document.getElementById("num1").value);
-    var num2 = parseFloat(document.getElementById("num2").value);
-    var result;
+  <!-- JavaScript -->
+  <script>
+    function calculate(operator) {
+      var num1 = parseFloat(document.getElementById("num1").value);
+      var num2 = parseFloat(document.getElementById("num2").value);
+      var result;
 
-    if (isNaN(num1) || isNaN(num2)) {
-      result = "Nhập số hợp lệ!";
-    } else {
-      switch (operator) {
-        case '+':
-          result = num1 + num2;
-          break;
-        case '-':
-          result = num1 - num2;
-          break;
-        case '/':
-          result = num2 !== 0 ? num1 / num2 : "Không thể chia cho 0!";
-          break;
-        default:
-          result = "Phép tính không hợp lệ!";
+      if (isNaN(num1) || isNaN(num2)) {
+        result = "Nhập số hợp lệ!";
+      } else {
+        switch (operator) {
+          case '+':
+            result = num1 + num2;
+            break;
+          case '-':
+            result = num1 - num2;
+            break;
+          case '*':
+            result = num1 * num2;
+            break;
+          case '/':
+            result = num2 !== 0 ? num1 / num2 : "Không thể chia cho 0!";
+            break;
+          default:
+            result = "Phép tính không hợp lệ!";
+        }
       }
+
+      document.getElementById("result").value = result;
     }
 
-    document.getElementById("result").value = result;
-  }
-
-  function clearFields() {
-    document.getElementById("num1").value = "";
-    document.getElementById("num2").value = "";
-    document.getElementById("result").value = "0";
-  }
-</script>
+    function clearFields() {
+      document.getElementById("num1").value = "";
+      document.getElementById("num2").value = "";
+      document.getElementById("result").value = "0";
+    }
+  </script>
 
 </body>
+
 </html>
